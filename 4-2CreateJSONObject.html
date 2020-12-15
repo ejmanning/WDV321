@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+
+		let jsJavaBook = {
+
+				"ISBN":"0-596-00016-2",
+				"title":"Java and XML",
+				"price":39.95,
+				"publisher":"O'Reilly &amp; Associates",
+				"authors": {
+					"author": {
+						"fname":"Brett",
+						"lname":"McLaughlin",
+						"price":22.00
+					}
+				},
+				"copyright":2000,
+				"comments":"Update required"
+		};
+
+		let jsVBBook = {
+
+				"ISBN":"1-861003-32-3",
+				"title":"Professional Visual Basic 6 XML",
+				"price":49.99,
+				"publisher":"Wrox Press",
+				"authors": {
+					"author": {
+						"fname":"James",
+						"lname":"Britt"
+					},
+					"Author": {
+						"fname":"Tuen",
+						"lname":"Duynstee"
+					}
+				},
+				"copyright":2000,
+				"comments":"Outdated text. Switch to C#"
+		};
+
+		let jsTextbooks = {
+
+				"javaBook":jsJavaBook,
+				"jsVBBook":jsVBBook
+		};
+
+    console.log(jsJavaBook.ISBN + " ");
+    console.log(jsJavaBook.title + " ");
+    console.log(jsJavaBook.price + " ");
+    console.log(jsJavaBook.publisher + " ");
+    console.log(jsJavaBook.authors.author.fname + " ");
+    console.log(jsJavaBook.authors.author.lname + " ");
+    console.log(jsJavaBook.authors.author.price + " ");
+    console.log(jsJavaBook.copyright + " ");
+    console.log(jsJavaBook.comments + " ");
+
+
+    console.log(jsVBBook.ISBN + " ");
+    console.log(jsVBBook.title + " ");
+    console.log(jsVBBook.price + " ");
+    console.log(jsVBBook.publisher + " ");
+    console.log(jsVBBook.authors.author.fname + " ");
+    console.log(jsVBBook.authors.author.lname + " ");
+    console.log(jsVBBook.copyright + " ");
+    console.log(jsVBBook.comments + " ");
+  </script>
+
+  </head>
+  <body>
+    <br>
+    <script>
+      document.write(jsJavaBook.ISBN + " ");
+      document.write(jsJavaBook.title + " ");
+      document.write(jsJavaBook.price + " ");
+      document.write(jsJavaBook.publisher + " ");
+      document.write(jsJavaBook.authors.author.fname + " ");
+      document.write(jsJavaBook.authors.author.lname + " ");
+      document.write(jsJavaBook.authors.author.price + " ");
+      document.write(jsJavaBook.copyright + " ");
+      document.write(jsJavaBook.comments + " ");
+    </script>
+    <br>
+    <script>
+      document.write(jsVBBook.ISBN + " ");
+      document.write(jsVBBook.title + " ");
+      document.write(jsVBBook.price + " ");
+      document.write(jsVBBook.publisher + " ");
+      document.write(jsVBBook.authors.author.fname + " ");
+      document.write(jsVBBook.authors.author.lname + " ");
+      document.write(jsVBBook.copyright + " ");
+      document.write(jsVBBook.comments + " ");
+    </script>
+
+  </body>
+</html>
