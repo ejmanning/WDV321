@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>WDV321 Style Object</title>
+
+    <style>
+      p {
+        color:red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>WDV321 Advanced Javascript</h1>
+
+    <p style="color: green">Working with the style object of the DOM objects</p>
+
+    <p>This is another paragraph</p>
+
+    <p>
+        <button>Change Paragraph</button>
+    </p>
+
+    <script>
+      let styleObject = document.querySelector("style"); //get style object
+
+      console.log(styleObject);
+
+      let pObject = document.querySelector("p"); //get paragraph objects
+
+      console.log(pObject);
+
+      console.log(pObject.innerHTML);
+
+      console.log(pObject.style);
+
+      function changeColor() {
+        document.querySelector("p[style='color: green']").style.color = 'blue';
+      }
+
+      document.querySelector("button").onclick=changeColor;
+
+    </script>
+
+  </body>
+</html>
