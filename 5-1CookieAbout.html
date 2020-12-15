@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>About Page</title>
+		<script>
+			// Checks to see if Authentication Cookie is set. If not, redirects to home page.
+			if(getCookie('authCookie') == null)
+			{
+				window.location.href = "cookieHandlingHomepage.html";
+			}
+
+			// Gets the value of a cookie.
+			function getCookie(cookieName)
+			{
+				var cookieValue = null;
+				var findCookie = document.cookie + ";";
+				var findName = cookieName + "=";
+				var endPos;
+				if (findCookie.length > 0 )
+				{
+					var beginPos = findCookie.indexOf(findName);
+					if (beginPos != -1)
+					{
+						beginPos = beginPos + findName.length;
+						endPos = findCookie.indexOf(";", beginPos);
+						if (endPos == -1)
+							endPos = findCookie.length;
+						cookieValue = findCookie.substring(beginPos, endPos);
+					}
+				}
+			   return cookieValue;
+			}
+			console.log(getCookie("counter"));
+
+			// Deletes cookies.
+			function deleteCookies()
+			{
+				document.cookie = "counter=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+				document.cookie = "accessTime=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+				document.cookie = "authCookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+			}
+		</script>
+	</head>
+
+	<body>
+		<h1>WDV321 Advanced Javascript</h1>
+		<h3>Assignment: Cookie Handling - About Page</h3>
+		<p><a href="5-1CookieHome.html">Home Page</a></p>
+		<p>Number of times home page has been accessed:
+			<script>document.write(getCookie('counter'));</script></p>
+		<p>Website viewed prior to home page:
+			<script>document.write(getCookie('accessTime'));</script></p>
+		<input type="button" value="Destroy Cookies" id="destroyCookies" onclick="deleteCookies();">
+	</body>
+</html>
