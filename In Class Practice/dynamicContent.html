@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WDV321 Advanced Javascript</title>
+
+    <script>
+    /*
+      1. create function called generateProducts
+      2. in the function create an event handler to show / display the correct products
+    */
+
+    function addFruitOptions() { //createElement
+
+      let fruits = ["Choose a Fruit", "Apples", "Oranges", "Watermelon"];
+
+      let productList = document.querySelector("select");
+
+      productList.options.length=0;
+
+      for(let i=0; i < fruits.length; i++ ) {
+        let optionObj = document.createElement("option");
+        optionObj.text = fruits[i];
+        productList.add(optionObj);
+      }
+
+    }
+
+  function addVegetableOptions() { //createElement
+
+      let vegetables = ["Choose a Vegetable", "Brussel Sprouts", "Brocolli", "Carrots"];
+
+      let productList = document.querySelector("select");
+
+      productList.options.length=0;
+
+      for(let i=0; i < vegetables.length; i++ ) {
+        let optionObj = document.createElement("option");
+        optionObj.text = vegetables[i];
+        productList.add(optionObj);
+      }
+
+    }
+
+    function addDairyOptions() { //appendChild
+
+      let dairy = ["Milk", "Yogurt", "Cheese"];
+
+      let productList = document.querySelector("select");
+
+      productList.options.length=0;
+
+      let defaultOpt = new Option("Choose a Dairy Product");
+      productList.appendChild(defaultOpt);
+
+      for(let i=0; i < dairy.length; i++ ) {
+        let optionObj = new Option(dairy[i]);
+        productList.appendChild(optionObj);
+      }
+
+    }
+
+    function clearOptions() {
+      document.querySelector("#fruit").checked=false;
+      document.querySelector("#vegetables").checked=false;
+      document.querySelector("#dairy").checked=false;
+
+      let productList = document.querySelector("select");
+
+      productList.options.length=0;
+
+      let optionObj = document.createElement("option");
+      optionObj.text="Choose a Product";
+      productList.add(optionObj);
+    }
+
+    function assignEvents() {
+
+      document.querySelector("#fruit").onclick = function() {
+        addFruitOptions();
+      }
+
+      document.querySelector("#vegetables").onclick = function() {
+        addVegetableOptions();
+      }
+
+      document.querySelector("#dairy").onclick = function() {
+        addDairyOptions();
+      }
+
+      document.querySelector("button").onclick = function() {
+        clearOptions();
+      }
+    }
+    </script>
+  </head>
+  <body onload = "assignEvents()">
+    <h1>WDV321 Advanced Javascript</h1>
+    <h2>Unit-3 Dynamic Content - Select</h2>
+
+    <p>Choose one of the following</p>
+    <p>
+      <input type = "radio" id = "fruit" name = "products" value = "fruit"
+      <label for = "fruit">Fruits</label><br>
+
+      <input type = "radio" id = "vegetables" name = "products" value = "vegetables"
+      <label for = "vegetables">Vegetables</label><br>
+
+      <input type = "radio" id = "dairy" name = "products" value = "dairy"
+      <label for = "dairy">Dairy</label><br>
+
+    </p>
+
+    <p>Select your product: </p>
+
+    <p>
+      <select name="productsList">
+        <option value = ""> Choose a Product</option>
+        <!--<option id="option1"></option>
+        <option id="option2"></option>
+        <option id="option3"></option>-->
+
+      </select>
+    </p>
+
+    <p>
+      <button>Clear Choices</button>
+    </p>
+
+  </body>
+</html>
