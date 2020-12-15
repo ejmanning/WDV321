@@ -3,6 +3,9 @@
 let assert = require('chai').assert;	//Chai assertion library
 let validInput = require('../app/validateRequiredField');
 let validatePhoneNumber = require('../app/validatePhoneNumber');
+let validateEmailAddress = require('../app/validateEmailAddress');
+let validateZipCode = require('../app/validateZipCode');
+let findAndReplace = require('../app/findAndReplace');
 
 describe("Testing Input Required", function(){
 
@@ -68,3 +71,91 @@ describe("Testing Valid Phone Number", function(){
 	});
 
 }); //end Testing Valid Phone Number
+
+describe("Testing Valid Email Address", function(){
+
+	it("Input is required", function(){
+		assert.isFalse(validateEmailAddress(' '));
+	});
+
+	it("@ is not present", function(){
+		assert.isFalse(validateEmailAddress('mysite.ourearth.com'));
+	});
+
+	it("TLD can not start with dot", function(){
+		assert.isFalse(validateEmailAddress('mysite@.com.my'));
+	});
+
+	it("No character before @", function(){
+		assert.isFalse(validateEmailAddress('@you.me.net'));
+	});
+
+	it("should work", function(){
+		assert.isTrue(validateEmailAddress('my.ownsite@ourearth.org'));
+	});
+
+	it("should work", function(){
+		assert.isTrue(validateEmailAddress('mysite@you.me.net'));
+	});
+
+}); //end Testing Valid Email Address
+
+describe("Testing Valid Zip Code", function(){
+
+	it("Input is required", function(){
+		assert.isFalse(validateZipCode(' '));
+	});
+
+	it("Greater than 5 digits", function(){
+		assert.isFalse(validateZipCode('50796884'));
+	});
+
+	it("Less than 5 digits", function(){
+		assert.isFalse(validateZipCode('5012'));
+	});
+
+	it("Not a number", function(){
+		assert.isFalse(validateZipCode('you'));
+	});
+
+	it("should work", function(){
+		assert.isTrue(validateZipCode('50111'));
+	});
+
+	it("should work", function(){
+		assert.isTrue(validateZipCode('50109'));
+	});
+
+}); //end Testing Valid Zip Code
+
+describe("Testing Find '/<> and Replace with -", function(){
+
+	it("No input returns the same", function(){
+		assert.equal(findAndReplace(' '), ' ');
+	});
+
+	it("Contains <", function(){
+		assert.equal(findAndReplace('Yes < Sir'), 'Yes - Sir');
+	});
+	
+	it("Contains >", function(){
+		assert.equal(findAndReplace('No > Sir'), 'No - Sir');
+	});
+	
+	it("Contains '", function(){
+		assert.equal(findAndReplace("Hello ' there"), 'Hello - there');
+	});
+	
+	it("Contains /", function(){
+		assert.equal(findAndReplace('No / Yes'), 'No - Yes');
+	});
+	
+	it("Should be the same", function(){
+		assert.equal(findAndReplace('Erica - Hello!'), 'Erica - Hello!');
+	});
+	
+	it("Should be the same", function(){
+		assert.equal(findAndReplace('Yes Sir'), 'Yes Sir');
+	});
+}); //end Testing Find and Replace
+
