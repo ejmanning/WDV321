@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="cookies.js"></script>
+    <title>Home page</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <meta charset="utf-8">
+    <script language="javascript">
+
+
+        $(document).ready(function() {
+          document.getElementById("authentic").addEventListener("click",addAuthentication);
+          document.getElementById("create").addEventListener("click", function(){document.querySelector("form").style.display="block"});
+
+            if (getCookie("accessTime")) {
+              let cookie=getCookie("accessNumber");
+              if (cookie) {
+                while (!(parseInt(cookie)))         // while it is NAN
+                  cookie=cookie.replace(/\D/,"");     // remove leading non digits
+                timesPageAccessed=parseInt(cookie)+1; // get the first digit and add 1
+                addCookie("accessNumber",timesPageAccessed.toString());
+              }
+            else
+              addCookie("accessNumber","1");
+          }
+            else {
+              let today = new Date().toLocaleString();		//current time/date stamp
+              document.cookie = "accessTime =" + today + ";";
+
+              if (getCookie("accessNumber")) {
+                let cookie=getCookie("accessNumber");
+
+                while (!(parseInt(cookie)))  // while it is NAN
+                  cookie=cookie.replace(/\D/,"");   // remove leading non digits
+              timesPageAccessed=parseInt(cookie)+1; // get the first digit and add 1
+              addCookie("accessNumber",timesPageAccessed.toString());
+              }
+              else {
+                addCookie("accessNumber","1");
+            }
+          }
+          console.log(document.cookie);
+          console.log(document.querySelector("#formSubmit"));
+        })
+
+
+      </script>
+
+      <style>
+        form {
+          display:none;
+        }
+
+        body {
+          background-color: lightblue;
+          text-align: center;
+          padding: 2%;
+        }
+
+        main {
+          margin-left: 25%;
+          margin-right: 25%;
+          padding: 5%;
+          border: 5px solid navy;
+          border-radius: 20px;
+          background-color: #fff3d1;
+        }
+
+      </style>
+
+      </head>
+      <body>
+        <main>
+
+        <h1>Home</h1>
+        <a href="localStorageAbout.html"><button class="about">About</button></a>
+
+        <p><button id ="authentic">Create authentication cookie</button></p>
+        <p><button id ="create">Create a file</button></p>
+
+        <form onsubmit="return false;" method="post" id="f">
+          <h2>Sign up!</h2>
+          <p>Full name: <input type ="text" name="fullName" id="fullName"></p>
+          <p>Phone Number: <input type="text" name ="phoneNumber" id="phoneNumber"></p>
+          <p>Email Address: <input type="text" name="email" id="email"></p>
+          <p>
+            <input type="submit" name="submit" onclick="createFile()" />
+            <input type="reset" name="resetButton"/>
+          </p>
+        </form>
+        <span id="formSubmit"></span>
+      </main>
+
+      </body>
+      </html>
