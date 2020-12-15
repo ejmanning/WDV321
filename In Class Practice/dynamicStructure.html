@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WDV321 Advanced Javascript</title>
+    <script>
+      function readyJavascript() {
+        document.querySelector("#visHide").onclick=function() {
+          document.querySelector("#p2").style.visibility="hidden";
+        }
+
+        document.querySelector("#visShow").onclick=function() {
+          document.querySelector("#p2").style.visibility="visible";
+        }
+
+        document.querySelector("#disNone").addEventListener("click",
+          function() {
+            document.querySelector("#p2").style.display="none";
+          });
+
+        document.querySelector("#disShow").addEventListener("click",
+          function() {
+            document.querySelector("#p2").style.display="block";
+          });
+
+
+
+
+
+        document.querySelector("#people").style.display="none";
+        document.querySelector("#items").style.display="none";
+
+        document.querySelector("#showPeople").addEventListener("click",
+          function() {
+            document.querySelector("#people").style.display="block";
+            document.querySelector("#items").style.display="none";
+          });
+
+        document.querySelector("#showItems").addEventListener("click",
+          function() {
+            document.querySelector("#items").style.display="block";
+            document.querySelector("#people").style.display="none";
+          });
+      }
+
+
+
+    </script>
+  </head>
+  <body onload="readyJavascript()">
+    <h1>WDV321 Advanced Javascript</h1>
+
+    <h2>Unit 3 Dynamic Content and Structures</h2>
+
+    <h3>Style object - visibility and display</h3>
+
+    <p id="p1">This is paragraph one.</p>
+    <p id="p2">This is paragraph two.</p>
+    <p id="p3">This is paragraph three.</p>
+
+    <p>Visibility:
+      <button id="visHide">Hide p2</button>
+
+      <button id="visShow">Show p2</button>
+    </p>
+
+    <p>Display:
+      <button id="disNone">None p2</button>
+
+      <button id="disShow">Show p2</button>
+    </p>
+
+    <ul id="people">
+      <li>Erica</li>
+      <li>Joe</li>
+      <li>Kids</li>
+    </ul>
+
+    <ul id="items">
+      <li>Clothes</li>
+      <li>Diapers</li>
+      <li>Wipes</li>
+    </ul>
+
+
+    <p>
+      <button id="showPeople">People</button>
+
+      <button id="showItems">Items</button>
+    </p>
+
+  </body>
+</html>
