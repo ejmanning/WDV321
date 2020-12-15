@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV321 Advanced Javascript</title>
+
+<script>
+
+function readyJavascript () {
+
+  document.querySelector("#complaintsList").style.display="none";
+  document.querySelector("#technicalProblemsList").style.display="none";
+  document.querySelector("#productIssuesList").style.display="none";
+
+  document.querySelector("#contactType").onchange=function() {
+
+    let contactReason = ["Select a Reason", "Complaints", "Technical Problems", "Product Issues"];
+
+    let reasonValue = document.querySelector("#contactType").value;
+
+    if (reasonValue == contactReason[0]) {
+      document.querySelector("#complaintsList").style.display="none";
+      document.querySelector("#technicalProblemsList").style.display="none";
+      document.querySelector("#productIssuesList").style.display="none";
+    }
+
+     else if (reasonValue == contactReason[1]) {
+        document.querySelector("#complaintsList").style.display="block";
+        document.querySelector("#technicalProblemsList").style.display="none";
+        document.querySelector("#productIssuesList").style.display="none";
+      }
+
+        else if (reasonValue == contactReason[2]) {
+          document.querySelector("#complaintsList").style.display="none";
+          document.querySelector("#technicalProblemsList").style.display="block";
+          document.querySelector("#productIssuesList").style.display="none";
+        }
+
+          else if (reasonValue == contactReason[3]) {
+            document.querySelector("#complaintsList").style.display="none";
+            document.querySelector("#technicalProblemsList").style.display="none";
+            document.querySelector("#productIssuesList").style.display="block";
+          }
+
+  }
+}
+</script>
+</head>
+
+<body onload="readyJavascript()">
+<h1>WDV321 Advanced Javascript</h1>
+<h2>Dynamic Form Structure - Assignment</h2>
+<p>Use this page as the basis for your assignment. Given the drop down list provided on this page please do the following things.</p>
+
+<p>
+  <label>Please Select your reason for contacting us.
+    <select name="contactType" id="contactType">
+      <option id="select">Select a Reason</option>
+      <option id="C">Complaints</option>
+      <option id="T">Technical Problems</option>
+      <option id="P">Product Issues</option>
+    </select>
+  </label>
+</p>
+
+
+<p id="complaintsList">
+  <select name="complaintsDropdown" id="complaintsDropdown">
+    <option id="select">Select a Reason</option>
+    <option id="checkOut">Check out process too long</option>
+    <option id="altPay">Should offer alternative payment options</option>
+    <option id="highPrice">Prices are too high</option>
+    <option id="lowQual">Product is low quality</option>
+  </select>
+</p>
+
+<form id="technicalProblemsList">
+  <input type="checkbox" id="slow" name="slow" value="slow">
+  <label for="slow">Product works slower than expected</label><br>
+  <input type="checkbox" id="security" name="security" value="security">
+  <label for="security">Product is not secure with my information</label><br>
+  <input type="checkbox" id="storage" name="storage" value="storage">
+  <label for="storage"> Product has limited storage</label><br>
+  <input type="checkbox" id="temp" name="temp" value="temp">
+  <label for="temp"> Product gets extremely hot after use</label><br>
+</form>
+
+<form id="productIssuesList">
+  <p>
+    <input type="radio" name="radio" id="year" value="year" />
+    Product stopped working before a year of owning it
+  </p>
+
+  <p>
+    <input type="radio" name="radio" id="broke" value="broke" />
+    Product broke
+  </p>
+
+  <p>
+    <input type="radio" name="radio" id="turnOn" value="turnOn" />
+    Product will not always turn on
+  </p>
+
+  <p>
+    <input type="radio" name="radio" id="computer" value="computer" />
+    Product caused my computer to stop working
+  </p>
+</form>
+
+
+<ol>
+  <li>When  Complaints are selected please dynamically create and display a new drop down list that includes at least four options of your choice.</li>
+  <li>When Technical Problems are selected please dynamically create and display at least four types of problems with an associated checkbox.</li>
+  <li>When Product Issues aer selected please dynamically create and display at least four types options as a grouped set of radio buttons. </li>
+  <li>When a new option is selected your script should remove any of the dynamic content. </li>
+</ol>
+<p>&nbsp;</p>
+</body>
+</html>
