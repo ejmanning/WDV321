@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+<script>
+
+  /*
+
+  $() selector!       //$ is short for "JQuery"
+  $( CSS selectors )  //Use CSS selectors to access HTML objects
+  $(.printLine)       //access any object with class = printLine
+
+  selector.function() //based upon the selector call a function
+  $(document).ready() //when the document is fully loaded call
+                      //the ready function
+
+   function() {
+      alert("JQuery is available");
+  });
+
+  */
+
+  $(document).ready(function() {
+      $("#button").click(function() {
+              displayField();
+      });
+
+      $("#button2").click(function() {
+        clearDisplay();
+      });
+  });
+
+
+
+
+  function displayField() {
+
+    let inName = $("#inputName").val();
+
+    console.log(inName);
+
+    $("p span").html(inName);
+  }
+
+  function clearDisplay() {
+
+    $("p span").html(" ");
+
+  }
+</script>
+
+</head>
+
+<body>
+<p>WDV321 Advanced Javascript</p>
+<p>Input Processing </p>
+<form name="form1" method="post" action="">
+  <p>Name:
+    <label for="inputName"></label>
+  <input type="text" name="inputName" id="inputName">
+  </p>
+  <p>
+    <input type="button" name="button" id="button" value="Submit">
+    <input type="reset" name="button2" id="button2" value="Reset">
+  </p>
+</form>
+<p>You Entered: <span></span> </p>
+<p>&nbsp;</p>
+</body>
+</html>
