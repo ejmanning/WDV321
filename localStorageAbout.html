@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="cookies.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>About page</title>
+	<!--Author: David Kopf
+      Date: October 6, 2020 -->
+      <meta charset="utf-8">
+      <script>
+      $(document).ready(function() {
+        document.getElementById("edit").addEventListener("click", function(){document.querySelector("form").style.display="block"})
+        let cookie=getCookie("accessNumber");
+        let time=getCookie("accessTime");
+        if (cookie)
+            document.querySelector("#count").innerHTML="Home page accessed "+cookie + " times.";
+        if (time)
+            document.querySelector("#time").innerHTML="Home page accessed at "+time;
+        console.log(cookie, time)
+
+
+
+      if (getCookie("authentication")) {
+        let auth=getCookie("authentication")
+        document.querySelector("#homePageAuthentication").innerHTML=auth}
+      document.querySelector("#fullName").value=localStorage.getItem("fullName");
+      document.querySelector("#phoneNumber").value=localStorage.getItem("phoneNumber");
+      document.querySelector("#email").value=localStorage.getItem("email");
+
+    })
+    </script>
+     <style>
+      form {
+        display:none;
+      }
+
+      body {
+        background-color: lightblue;
+        text-align: center;
+        padding: 2%;
+      }
+
+      main {
+        margin-left: 25%;
+        margin-right: 25%;
+        padding: 5%;
+        border: 5px solid navy;
+        border-radius: 20px;
+        background-color: #fff3d1;
+      }
+
+
+    </style>
+      </head>
+
+      <body>
+        <main>
+
+        <h1>About Us</h1>
+        <a href="localStorageHome.html"><button class="home">Home</button></a>
+          <p><span id="homePageAuthentication"></span></p>
+          <span id="count"></span>
+          <p></p><span id="time"></span></p>
+          <script>
+
+          </script>
+          <button onclick="deleteCookies()">Delete cookies</button>
+
+          <p><button id ="edit">Edit your information</button></p>
+
+          <form onsubmit="return false;" method="post" id="f">
+            <h2>Update your information</h2>
+            <p>Full name: <input type ="text" name="fullName" id="fullName"></p>
+            <p>Phone Number: <input type="number" name ="phoneNumber" id="phoneNumber"></p>
+            <p>Email address: <input type="text" name="email" id="email"></p>
+            <p>
+              <input type="submit" name="submit" onclick="createFile()" />
+              <input type="reset" name="resetButton"/>
+            </p>
+          </form>
+          <span id="formSubmit"></span>
+        </main>
+
+
+
+
+      </body>
+
+      </html>
