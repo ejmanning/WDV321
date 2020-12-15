@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Home Page</title>
+		<script>
+			// Calls function every time page loads to update counter.
+			homePageCounter();
+			accessDate();
+			// Counter to find out number of home page views over 3 days.
+			function homePageCounter()
+			{
+				var homePageViews = getCookie("counter");
+
+				if(!homePageViews)
+				{
+					homePageViews = 1;
+					// Adds session cookie for prior url.
+				}
+				else
+				{
+					homePageViews = parseInt(homePageViews) + 1;
+				}
+				setCookie("counter", homePageViews, 3);
+			}
+
+			function accessDate() {
+				let date = new Date();
+				document.cookie = "accessTime=" + date; + "expires=Thu, 18 Dec 2035 12:00:00 UTC";
+			}
+			// Sets a cookie.
+			function setCookie(cookieName, cookieValue, expDate)
+			{
+				var exDate = new Date();
+				exDate.setTime(exDate.getTime() + expDate*24*60*60*1000);
+				var cExpires = "expires=" + exDate.toUTCString();
+				document.cookie = cookieName + "=" + cookieValue + ";" + cExpires + ";path=/";
+			}
+			// Gets value of a cookie.
+			function getCookie(cookieName)
+			{
+				var cookieValue = null;
+				var findCookie = document.cookie + ";";
+				var findName = cookieName + "=";
+				var endPos;
+				if (findCookie.length > 0 )
+				{
+					var beginPos = findCookie.indexOf(findName);
+					if (beginPos != -1)
+					{
+						beginPos = beginPos + findName.length;
+						endPos = findCookie.indexOf(";", beginPos);
+						if (endPos == -1)
+							endPos = findCookie.length;
+						cookieValue = findCookie.substring(beginPos, endPos);
+					}
+				}
+			   return cookieValue;
+			}
+			console.log(getCookie("counter"));
+			console.log(getCookie("priorURL"));
+			console.log(getCookie("authCookie"));
+		</script>
+	</head>
+
+	<body>
+		<h1>WDV321 Advanced Javascript</h1>
+		<h3>Assignment: Cookie Handling - Home Page</h3>
+		<p><a href="5-1CookieAbout.html">About Page</a></p>
+		<input type="button" value="Create Authentication Cookie" id="securedCookie"
+			onclick="setCookie('authCookie', 'true', 180);">
+	</body>
+</html>
