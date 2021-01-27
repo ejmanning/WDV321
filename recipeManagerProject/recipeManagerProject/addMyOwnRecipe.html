@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WDV321 Advanced Javascript</title>
+    <link rel="stylesheet" type="text/css" href="css/recipeManager.css">
+    <script src = "recipeManager.js"></script>
+    <script src = "formRecipe.js"></script>
+
+
+  </head>
+  <body>
+    <header>
+      <h1>Add A Recipe</h1>
+      <a href = "recipeManager.html"><button class = "home" onClick = "getNewRecipe();">Back to Home</button></a>
+    </header>
+
+    <main>
+      <form name ="recipeForm">
+        <h1>My Recipe</h1>
+
+        <label for="recipeName">Name Of Recipe:</label>
+        <input type="text" id="recipeName" name="recipeName"><br>
+
+        <label for="recipeImage">Image:</label>
+        <input type="file" name="recipeImage" id="recipeImage"><br>
+
+        <label for="servings">Servings It Makes:</label>
+        <input type="number" id="servings" name="servings"><br>
+
+        <label for="prepTime">Prep Time:</label>
+        <input type="number" id="prepTime" name="prepTime">
+
+        <input type="radio" id="prepTimeMinutes" name="prepTimeMeasurement" value="minutes">
+        <label for="prepTimeMinutes">Minutes</label>
+        <input type="radio" id="prepTimeHours" name="prepTimeMeasurement" value="hours">
+        <label for="prepTimeHours">Hours</label>
+        <br>
+
+        <label for="cookTime">Cook Time:</label>
+        <input type="number" id="cookTime" name="cookTime">
+
+        <input type="radio" id="cookTimeMinutes" name="cookTimeMeasurement" value="minutes">
+        <label for="cookTimeMinutes">Minutes</label>
+        <input type="radio" id="cookTimeHours" name="cookTimeMeasurement" value="hours">
+        <label for="cookTimeHours">Hours</label>
+        <br>
+
+        <label for="difficulty">Difficulty:</label>
+        <select name="difficulty" id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="average">Average</option>
+          <option value="difficult">Difficult</option>
+        </select>
+        <br><br>
+
+        <label for="ingredientNumber">Number of ingredients:</label> <br>
+        <input type="number" id="ingredientNumber" name="ingredientNumber" value=""><br>
+
+        <a href="#" id="ingredients" onclick="addFieldsIngredients()">Insert Ingredients</a>
+        <div id="containerIngredients"></div><br>
+
+        <label for="instructionsNumber">Number of instructions:</label> <br>
+        <input type="number" id="instructionsNumber" name="instructionsNumber" value=""><br>
+
+        <a href="#" id="instructions" onclick="addFieldsInstructions()">Insert Instructions</a>
+        <div id="containerInstructions"></div>
+
+
+        <input type="submit"  onSubmit = "infoFunctionNew(); ingredientsFunctionNew(); instructionsFunctionNew(); onClickDisplay();" value="Add Recipe">
+
+        <p id = "lol"></p>
+      </form>
+    </main>
+
+
+  </body>
+  </html>
