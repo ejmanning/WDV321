@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+	<script>
+		function upload() {
+			let imgcanvas=document.getElementById("can");
+			let fileinput = document.getElementById("finput");
+			let image=new SimpleImage(fileinput);
+			image.drawTo(infoNew);
+		}
+	</script>
+</head>
+<body>
+	<h1>Upload Image and Display</h1>
+	<canvas id="can"></canvas>
+	<input type="file" multiple="false" accept="image/*" id="finput" onchange=upload()></input>
+	<input type = "submit" value="Submit"  ></input>
+</body>
+</html>
