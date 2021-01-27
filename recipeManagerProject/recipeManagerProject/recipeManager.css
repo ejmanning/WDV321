@@ -1,0 +1,192 @@
+
+body {
+  text-align: center;
+  background-color: #cfeeff;
+}
+
+header {
+  background-color: #0084ff;
+  padding: 3%;
+}
+
+header h1{
+  color: white;
+  font-family: sans-serif;
+  -webkit-text-stroke: 1.5px black;
+  font-size: 300%;
+}
+
+header select {
+  width: 30%;
+  -webkit-appearance: menulist-button;
+  height: 40px;
+  font-size: 100%;
+}
+
+#instructionsChili {
+  text-align: left;
+  padding-left: 40%;
+}
+
+#instructionsMAC {
+  text-align: left;
+  padding-left: 40%;
+}
+
+#instructionsCookies {
+  text-align: left;
+  padding-left: 40%;
+}
+
+#instructionsNew {
+  text-align: left;
+  padding-left: 40%;
+}
+.accordion {
+  background-color: #ffaa00;
+  color: navy;
+  cursor: pointer;
+  padding: 18px;
+  margin-bottom: 1px;
+  width: 100%;
+  border: thick solid white;
+  border-radius: 20px;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ffc757;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: #ffefcf;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  margin-bottom: 10px;
+}
+
+#addRecipePanel {
+  background-color: #cfeeff;
+
+}
+
+#addRecipeAccordion {
+  background-color: blue;
+  color: white;
+  -webkit-text-stroke: .5px black;
+  font-weight: bold;
+  font-size: 120%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.active, #addRecipeAccordion:hover {
+  background-color: #0084ff;
+}
+
+.addRecipeForm {
+    height: 500px;
+    overflow-y: auto;
+}
+
+img {
+  width: 20%;
+}
+
+
+header .home {
+  width: 20%;
+  height: 40px;
+  text-align: center;
+  font-size: 120%;
+  border-radius: 20px;
+  background-color: #ffaa00;
+}
+
+
+form {
+  padding: 1%;
+  margin: 5%;
+  margin-right: 25%;
+  margin-left: 25%;
+  width: 50%;
+  background-color: #0084ff;
+  border-radius: 20px;
+  border: 2px solid black;
+
+}
+
+form input[type=text] {
+  width: 20%;
+}
+
+form input[type=number] {
+   width: 5%;
+}
+
+form input {
+   margin-bottom: 2%;
+}
+
+canvas {
+  width: 20%;
+}
+
+
+
+
+@media only screen and (max-width: 750px) {
+  body {
+    font-size: 120%;
+  }
+  #instructionsChili {
+    padding-left: 10%;
+  }
+
+  #instructionsMAC {
+    padding-left: 10%;
+  }
+
+  #instructionsCookies {
+    padding-left: 10%;
+  }
+
+  form {
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+  }
+
+  form input[type=text] {
+    width: 50%;
+  }
+
+  form input[type=number] {
+     width: 10%;
+  }
+
+  form input {
+     margin-bottom: 5%;
+  }
+
+  header select {
+    width: 100%;
+  }
+
+  button {
+    padding: 6px 15px;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  header select {
+    width: 100%;
+  }
+}
